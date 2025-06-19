@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Conheça os Materiais</title>
+
+  <!-- Link para o arquivo CSS externo -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Elemento decorativo de fundo, agrupando as bolas -->
+  <div class="decoracao">
+    <div class="bola bola1"></div>
+    <div class="bola bola2"></div>
+    <div class="bola bola3"></div>
+    <div class="bola bola4"></div>
+    <div class="bola bola5"></div>
+  </div>
+
+  <!-- Conteúdo principal da página -->
+  <div class="conteudo">
+    <h1>Bem-vindos ao nosso site!</h1>
+    <p>Aqui, você poderá identificar o material correspondente a cada imagem microestrutural apresentada.
+    Este site foi desenvolvido com o objetivo de auxiliar no reconhecimento microestrutural de materiais de forma prática e interativa.</p>
+    <!-- Script de redirecionamento -->
+    <!-- Caixa de seleção com redirecionamento -->
+     <br>
+  <label for="redirecionar">Selecione o material:</label>
+    <select id="redirecionar" class="seletor-moderno" onchange="irParaPagina()">
+      <option value="">-- Selecione --</option>
+      {% for p in paginas %}
+        <option value="{{ url_for('mostrar_pagina', pagina_id=p.id) }}">{{ p.titulo }}</option>
+      {% endfor %}
+    </select>
+    <script>
+    function irParaPagina() {
+      const select = document.getElementById("redirecionar");
+      const url = select.value;
+      if (url) {
+        window.location.href = url;
+      }
+    } 
+  </script>
+  </div>
+  
+  <!-- Redirecionando o botão saiba mais, para informações -->
+  <div class="informacoes">
+    <h1>Mais Informações</h1>
+    <p>
+      Somos alunos do curso de Engenharia de Materiais da EEL-USP e, com o incentivo do professor Luiz
+      Eleno, na disciplina de Python, desenvolvemos este site como parte de uma atividade prática. Nosso
+      objetivo é proporcionar a vocês uma visão mais próxima da nossa área de atuação e mostrar um pouco
+      do que aprendemos ao longo do curso.
+    </p>
+    <p>
+      Esperamos que a experiência de navegação seja agradável e que você possa conhecer melhor o
+      universo da Engenharia de Materiais !
+    </p>
+    <p>
+      O grupo responsável por este projeto é formado por: Ana Lívia Sampaio, Francisco Rangel (Chico),
+      Ighor de Oliveira, Katharine Souza, Laís Monteiro (Polegada), Henrique Holanda (Mike) e Victoria Santos.
+    </p>
+  </div>
+</body>
+</html>

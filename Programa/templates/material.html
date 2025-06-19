@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>{{ titulo }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="conteudo">
+    <h2>{{ titulo }}</h2>
+    <div class="zoom-container">
+      <img src="{{ url_for('static', filename='img/' + imagem) }}"
+           alt="Imagem de {{ titulo }}" decoding="async"
+           class="zoom-img" loading="lazy">
+    </div>
+    <h1> Micrografia de {{ titulo }}</h1>
+    <ul class="estilo-h2">
+      <li>{{ texto1 }}</li>
+    </ul>
+    <a href="{{ url_for('index') }}">Voltar à página inicial</a>
+  </div>
+  <script src="{{ url_for('static', filename='zoom.js') }}"></script> <!--add zoom nas imagens -->
+</body>
+</html>

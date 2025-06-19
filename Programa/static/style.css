@@ -1,0 +1,253 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #4d0101 0%, #5a0000 20%, #8b0000 40%, #b71c1c 70%, #c91212 85%, #f73022 100%);
+    font-family: 'Arial', sans-serif;
+    color: white;
+    position: relative;
+    overflow-x: hidden; /* impede scroll lateral */
+    scroll-behavior: smooth;
+}
+
+.conteudo {
+    padding: 40px 40px 20px 40px; /* top, right, bottom, left */
+    z-index: 1;
+    position: relative;
+    text-align: center; /* opcional para ajudar na centralização */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.conteudo h2 {
+  text-align: center; /* texto alinhado no centro*/
+  font-size: 45px;
+}
+
+.conteudo h1 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: left; /* texto alinhado à esquerda */
+}
+
+.conteudo p {
+  text-align: left;
+}
+
+.estilo-h2 {
+    text-align: left; /* texto alinhado à esquerda */
+  list-style: none;
+  padding-left: 0;
+}
+
+.seletor-moderno {
+  background-color: #f4f4f4;     /* Fundo claro */
+  color: #222;                   /* Texto escuro */
+  padding: 1px 6px;             /* Tamanho */
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  appearance: none;
+  transition: border 0.3s ease, background-color 0.3s ease;
+  width: auto;                   /* Largura automática ao conteúdo */
+  max-width: 100%;
+}
+
+
+.seletor-moderno:hover {
+  background-color: #e9e9e9;
+  border-color: #bbb;
+}
+
+.seletor-moderno:focus {
+  outline: none;
+  border-color: #888;
+  background-color: #f0f0f0;
+}
+.conteudo img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto 10px auto; /* Reduz espaço acima e abaixo */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;         /* Sem borda visível por padrão */
+}
+
+.conteudo img:hover {
+  transform: scale(1.02);        /* Leve zoom ao passar o mouse */
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+}
+.zoom-container {
+  position: relative;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.zoom-img {
+  display: block;
+  width: 100%;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+.zoom-container.ativo {
+  cursor: zoom-out;
+}
+
+.zoom-container.ativo .zoom-img {
+  transform: scale(2); /* Fator de zoom */
+}
+a {
+    color: #f9fd1c;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; /* Transição suave */
+}
+
+a:hover {
+    text-decoration: underline;
+    transform: scale(1.05); /* Zoom suave */
+}
+/* Personalização do scroll lateral */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+@media (max-width: 600px) {
+  .informacoes {
+    max-width: 90%;
+    padding: 15px;
+    font-size: 12px;
+    margin: 20px auto;
+  }
+  
+  .conteudo {
+    padding: 40px 20px;
+  }
+
+  .bola1, .bola2, .bola3, .bola4, .bola5 {
+    display: none; /* Esconde decorações que atrapalham no celular */
+  }
+}
+.informacoes {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;         /* largura máxima do bloco */
+  margin: 50px auto;        /* centraliza horizontalmente e dá espaço vertical */
+  padding: 10px 20px;       /* reduz o espaço interno */
+  border: 1px solid #ffffff;   /* borda cinza */
+  border-radius: 10px;      /* cantos arredondados */
+  background-color: #0000001e;   /* fundo branco ou da cor que preferir */
+  text-align: center;       /* centraliza o texto dentro do bloco */
+  box-shadow: 0 1px 5px rgba(255, 231, 14, 0.1); /* sombra suave */
+  display: flex;            /* utiliza flexbox */
+  flex-direction: column;   /* organiza os elementos de forma vertical */
+  justify-content: center;  /* centraliza o conteúdo verticalmente */
+  align-items: center;      /* centraliza o conteúdo horizontalmente */
+  min-height: auto;         /* altura mínima de 25% da tela */
+  max-height: none;         /* limite de altura para o bloco */
+  overflow-y: auto;         /* permite rolagem se o conteúdo ultrapassar a altura */
+  font-size: 14px;          /* diminui o tamanho da fonte para compactar o texto */
+  line-height: 1.4;         /* reduz o espaçamento entre as linhas */
+  margin-bottom: 5px; /* ajusta conforme o espaço desejado */
+}
+
+.decoracao {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: visible;
+}
+
+@keyframes flutuar {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) translateX(20px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+}
+
+.bola {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: flutuar 10s infinite ease-in-out;
+}
+
+.bola1 {
+    width: 25px;
+    height: 25px;
+    background-color: #faf61d;
+    top: 5%;
+    left: 30%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+
+.bola2 {
+     width: 100px;
+    height: 100px;
+    background-color: #f8f520;
+    top: 40%;
+    left: 60%;
+    animation-duration: 12s;
+    animation-delay: 1s;
+}
+
+.bola3 {
+    width: 200px;
+    height: 200px;
+    background-color: #eef116;
+    top: 70%;
+    left: 90%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+.bola4 {
+   width: 150px;
+    height: 150px;
+    background-color: #eef116;
+    top: 80%;
+    left: 10%;
+    animation-duration: 10s;
+    animation-delay: 0.5s;
+}
+.bola5 {
+    width: 300px;
+    height: 300px;
+    background-color: #eef116;
+    top: 44%;
+    left: -10%;
+    animation-duration: 18s;
+    animation-delay: 3s;
+}
+
+@media (min-width: 768px) {
+  .conteudo img {
+    max-width: 600px; /* Limita a largura da imagem no desktop */
+    margin: 40px auto; /* Centraliza verticalmente */
+  }
+}
