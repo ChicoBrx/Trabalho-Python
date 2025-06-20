@@ -19,10 +19,10 @@ def index():
             "id": n + 1,           # id para acesso via URL, começa em 1
             "titulo": tabela['título'][n]  # título do material na linha n
         }
-        for n in range(len(tabela))  # percorre todas as linhas da tabela
+        for n in range(len(tabela))  # faz isso para todas as linhas da tabela
     ]
     
-    # Renderiza o template 'index.html' e envia a lista 'dados' para a página
+    #Devolve a página que será exibida no navegador
     return render_template("index.html", paginas=dados)
 
 # Rota para exibir a página de um material específico, com ID numérico
@@ -42,7 +42,7 @@ def mostrar_pagina(pagina_id):
         titulo = tabela['título'][n]
         imagem = tabela['img'][n]
         texto1 = tabela['texto1'][n]
-        
+    
         # Renderiza o template 'material.html' com os dados do material selecionado
         return render_template("material.html", titulo=titulo, imagem=imagem, texto1=texto1)
     else:
